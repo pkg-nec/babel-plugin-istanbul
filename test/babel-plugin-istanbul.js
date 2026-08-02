@@ -16,9 +16,9 @@ function requireBabel8 (name) {
 
 function supportsBabel8 () {
   const [major, minor] = process.versions.node.split('.').map(Number)
-  return (major === 22 && minor >= 18)
-    || (major === 24 && minor >= 11)
-    || major > 24
+  return (major === 22 && minor >= 18) ||
+    (major === 24 && minor >= 11) ||
+    major > 24
 }
 
 describe('babel-plugin-istanbul', function () {
