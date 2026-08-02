@@ -71,5 +71,6 @@
   "homepage": "https://github.com/istanbuljs/babel-plugin-istanbul#readme",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@4.18.0"
 }
