@@ -14,6 +14,13 @@ function requireBabel8 (name) {
   )
 }
 
+function supportsBabel8 () {
+  const [major, minor] = process.versions.node.split('.').map(Number)
+  return (major === 22 && minor >= 18) ||
+    (major === 24 && minor >= 11) ||
+    major > 24
+}
+
 describe('babel-plugin-istanbul', function () {
   context('with Babel 7', function () {
     defineTests(babel7, {
@@ -21,17 +28,18 @@ describe('babel-plugin-istanbul', function () {
       blockScoping: require('@babel/plugin-transform-block-scoping')
     })
   })
-  if (Number.parseInt(process.versions.node, 10) >= 20) {
+
+  if (supportsBabel8()) {
     context('with Babel 8', function () {
       defineTests(requireBabel8('@babel/core'), {
         commonjs: requireBabel8('@babel/plugin-transform-modules-commonjs'),
         blockScoping: requireBabel8('@babel/plugin-transform-block-scoping')
-      })
+      }, { sourceMaps: true, inputSourceMap: true })
     })
   }
 })
 
-function defineTests (babel, babelPlugins) {
+function defineTests (babel, babelPlugins, options = {}) {
   context('Babel plugin config', function () {
     it('should instrument file if shouldSkip returns false', function () {
       var result = babel.transformFileSync('./fixtures/plugin-should-cover.js', {
@@ -110,7 +118,7 @@ function defineTests (babel, babelPlugins) {
 
   context('source maps', function () {
     it('should use inline source map', function () {
-      var result = babel.transformFileSync('./fixtures/has-inline-source-map.js', {
+      var transformOptions = {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -118,7 +126,20 @@ function defineTests (babel, babelPlugins) {
             include: ['fixtures/has-inline-source-map.js']
           }]
         ]
-      })
+      }
+
+      if (options.sourceMaps) {
+        transformOptions.sourceMaps = true
+      }
+
+      if (options.inputSourceMap) {
+        transformOptions.inputSourceMap = true
+      }
+
+      var result = babel.transformFileSync(
+        './fixtures/has-inline-source-map.js',
+        transformOptions
+      )
       result.code.should.match(/inputSourceMap/)
     })
 

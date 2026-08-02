@@ -42,3 +42,9 @@ jspm_packages
 
 # yarn install state
 .yarn/install-state.gz
+
+# local Git worktrees
+.worktrees/
+
+# JetBrains IDE project settings
+.idea/
