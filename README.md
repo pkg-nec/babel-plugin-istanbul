@@ -1,10 +1,11 @@
-# babel-plugin-istanbul
+# @pkg-nec/babel-plugin-istanbul
 
-[![Coverage Status](https://coveralls.io/repos/github/istanbuljs/babel-plugin-istanbul/badge.svg?branch=master)](https://coveralls.io/github/istanbuljs/babel-plugin-istanbul?branch=master)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![community slack](http://devtoolscommunity.herokuapp.com/badge.svg)](http://devtoolscommunity.herokuapp.com)
 
-_Having problems? want to contribute? join our [community slack](http://devtoolscommunity.herokuapp.com)_.
+This is the `pkg-nec` maintained distribution of
+[`istanbuljs/babel-plugin-istanbul`](https://github.com/istanbuljs/babel-plugin-istanbul).
+For support or to report a problem, use the
+[`pkg-nec/babel-plugin-istanbul` issue tracker](https://github.com/pkg-nec/babel-plugin-istanbul/issues).
 
 A Babel plugin that instruments your code with Istanbul coverage.
 It can instantly be used with [karma-coverage](https://github.com/karma-runner/karma-coverage) and mocha on Node.js (through [nyc](https://github.com/bcoe/nyc)).
@@ -18,7 +19,7 @@ To integrate with testing tools, please see the [Integrations](#integrations) se
 Install it:
 
 ```
-npm install --save-dev babel-plugin-istanbul
+npm install --save-dev @pkg-nec/babel-plugin-istanbul
 ```
 
 Add it to `.babelrc` in test mode:
@@ -27,7 +28,7 @@ Add it to `.babelrc` in test mode:
 {
   "env": {
     "test": {
-      "plugins": [ "istanbul" ]
+      "plugins": [ "@pkg-nec/babel-plugin-istanbul" ]
     }
   }
 }
@@ -75,7 +76,7 @@ You don't want to cover your test files as this will skew your coverage results.
   "env": {
     "test": {
       "plugins": [
-        ["istanbul", {
+        ["@pkg-nec/babel-plugin-istanbul", {
           "exclude": [
             "**/*.spec.js"
           ]
@@ -99,7 +100,7 @@ By default, this plugin will pick up inline source maps and attach them to the i
   "env": {
     "test": {
       "plugins": [
-        ["istanbul", {
+        ["@pkg-nec/babel-plugin-istanbul", {
           "useInlineSourceMaps": false
         }]
       ]
@@ -110,7 +111,7 @@ By default, this plugin will pick up inline source maps and attach them to the i
 
 If you're instrumenting code programatically, you can pass a source map explicitly.
 ```js
-import babelPluginIstanbul from 'babel-plugin-istanbul';
+import babelPluginIstanbul from '@pkg-nec/babel-plugin-istanbul'
 
 function instrument(sourceCode, sourceMap, filename) {
   return babel.transform(sourceCode, {
@@ -127,9 +128,3 @@ function instrument(sourceCode, sourceMap, filename) {
 ## Credit where credit is due
 
 The approach used in `babel-plugin-istanbul` was inspired by [Thai Pangsakulyanont](https://github.com/dtinth)'s original library [`babel-plugin-__coverage__`](https://github.com/dtinth/babel-plugin-__coverage__).
-
-## `babel-plugin-istanbul` for enterprise
-
-Available as part of the Tidelift Subscription.
-
-The maintainers of `babel-plugin-istanbul` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-babel-plugin-istanbul?utm_source=npm-babel-plugin-istanbul&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)

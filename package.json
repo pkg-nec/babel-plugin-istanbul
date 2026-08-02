@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-istanbul",
+  "name": "@pkg-nec/babel-plugin-istanbul",
   "version": "8.0.2",
   "author": "Thai Pangsakulyanont @dtinth",
   "license": "BSD-3-Clause",
@@ -8,6 +8,9 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
     "@istanbuljs/load-nyc-config": "^1.0.0",
@@ -48,7 +51,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbuljs/babel-plugin-istanbul.git"
+    "url": "git+https://github.com/pkg-nec/babel-plugin-istanbul.git"
   },
   "keywords": [
     "istanbul",
@@ -68,9 +71,9 @@
     "instrument": false
   },
   "bugs": {
-    "url": "https://github.com/istanbuljs/babel-plugin-istanbul/issues"
+    "url": "https://github.com/pkg-nec/babel-plugin-istanbul/issues"
   },
-  "homepage": "https://github.com/istanbuljs/babel-plugin-istanbul#readme",
+  "homepage": "https://github.com/pkg-nec/babel-plugin-istanbul#readme",
   "engines": {
     "node": ">=18"
   },
