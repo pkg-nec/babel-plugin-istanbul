@@ -28,6 +28,10 @@ Place test coverage in the matching `test/*.js` area and keep tests deterministi
 
 Keep the committed `yarn.lock` synchronized with intentional dependency changes and retain it in reviews. Avoid incidental reformatting or generated-file churn. Do not change release automation, publishing behavior, or workflow configuration without explicit instruction.
 
+## Release Versioning
+
+Before choosing a release-affecting commit subject or changing release configuration, AI agents must read `RELEASING.md`.
+
 ## Commit & Pull Request Guidelines
 
 Use Conventional Commit-style subjects, such as `fix: handle missing input` or `docs: clarify setup`. Keep commits narrowly scoped. Pull requests should explain the behavior change, list validation run, and call out compatibility or lockfile effects; link the motivating issue when available.

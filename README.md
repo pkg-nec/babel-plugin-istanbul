@@ -7,6 +7,8 @@ This is the `pkg-nec` maintained distribution of
 For support or to report a problem, use the
 [`pkg-nec/babel-plugin-istanbul` issue tracker](https://github.com/pkg-nec/babel-plugin-istanbul/issues).
 
+Maintainers: see the [release versioning guide](RELEASING.md).
+
 A Babel plugin that instruments your code with Istanbul coverage.
 It can instantly be used with [karma-coverage](https://github.com/karma-runner/karma-coverage) and mocha on Node.js (through [nyc](https://github.com/bcoe/nyc)).
 
