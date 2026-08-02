@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.3](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v8.0.2-pkg-nec...v8.0.3) (2026-08-02)
+
+- Publish releases with npm provenance
+
 ## `pkg-nec` distribution: 8.0.2 (2026-08-02)
 
 - Publish the first `@pkg-nec/babel-plugin-istanbul` distribution, based on
