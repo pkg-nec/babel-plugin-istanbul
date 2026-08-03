@@ -1,6 +1,6 @@
 {
   "name": "@pkg-nec/babel-plugin-istanbul",
-  "version": "8.0.3",
+  "version": "9.0.0",
   "author": "Thai Pangsakulyanont @dtinth",
   "license": "BSD-3-Clause",
   "description": "A babel plugin that adds istanbul instrumentation to ES6 code",
