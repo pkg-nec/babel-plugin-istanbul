@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v8.0.3...v9.0.0) (2026-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump engines.node to >=20
+
+### Bug Fixes
+
+* bump test-exclude from 7.0.2 to 8.0.0 ([#16](https://github.com/pkg-nec/babel-plugin-istanbul/issues/16)) ([4c9c036](https://github.com/pkg-nec/babel-plugin-istanbul/commit/4c9c03633d069a1edd6540a5e0c5e93285c5e5d7))
+
 ## [8.0.3](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v8.0.2-pkg-nec...v8.0.3) (2026-08-02)
 
 - Publish releases with npm provenance
