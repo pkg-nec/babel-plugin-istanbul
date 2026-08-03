@@ -1,13 +1,17 @@
 # @pkg-nec/babel-plugin-istanbul
 
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![npm version](https://img.shields.io/npm/v/@pkg-nec/babel-plugin-istanbul?logo=npm)](https://www.npmjs.com/package/@pkg-nec/babel-plugin-istanbul)
+[![CI](https://github.com/pkg-nec/babel-plugin-istanbul/actions/workflows/ci.yml/badge.svg)](https://github.com/pkg-nec/babel-plugin-istanbul/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/pkg-nec/babel-plugin-istanbul/badge)](https://scorecard.dev/viewer/?uri=github.com/pkg-nec/babel-plugin-istanbul)
 
-This is the `pkg-nec` maintained distribution of
-[`istanbuljs/babel-plugin-istanbul`](https://github.com/istanbuljs/babel-plugin-istanbul).
-For support or to report a problem, use the
-[`pkg-nec/babel-plugin-istanbul` issue tracker](https://github.com/pkg-nec/babel-plugin-istanbul/issues).
+@pkg-nec/babel-plugin-istanbul is a security-maintained compatible fork of
+[istanbuljs/babel-plugin-istanbul](https://github.com/istanbuljs/babel-plugin-istanbul).
+It keeps the upstream plugin API and instrumentation behavior while
+independently maintaining its dependency and supply-chain security posture.
 
-Maintainers: see the [release versioning guide](RELEASING.md).
+For bugs and feature requests, use the
+[pkg-nec/babel-plugin-istanbul issue tracker](https://github.com/pkg-nec/babel-plugin-istanbul/issues).
+For suspected vulnerabilities, follow the [security policy](SECURITY.md).
 
 A Babel plugin that instruments your code with Istanbul coverage.
 It can instantly be used with [karma-coverage](https://github.com/karma-runner/karma-coverage) and mocha on Node.js (through [nyc](https://github.com/bcoe/nyc)).
@@ -69,6 +73,30 @@ but you also need to __configure NYC not to instrument your code__ by adding the
   },
 ```
 
+## Security
+
+See the [security policy](SECURITY.md) to report suspected vulnerabilities.
+GitHub's dependency graph and Dependabot surface newly disclosed dependency
+vulnerabilities. The Dependency Review workflow prevents pull requests from
+adding high-or-critical vulnerable dependencies. The project treats transitive
+and development-tooling dependency risk as a maintenance concern, even when it
+does not ship in the npm tarball.
+
+## Funding
+
+Support maintenance at [Buy Me a Coffee](https://buymeacoffee.com/maw629).
+
+## Compatibility
+
+This fork preserves the upstream plugin API and instrumentation behavior. It
+will not intentionally diverge unless a future release documents that change.
+
+## Releases
+
+Maintainers: see the [release versioning guide](RELEASING.md). Published npm
+releases include npm provenance. Documentation-, CI-, funding-, and
+package-discovery-metadata-only changes do not cause an npm release.
+
 ## Ignoring files
 
 You don't want to cover your test files as this will skew your coverage results. You can configure this by providing plugin options matching nyc's [`exclude`/`include` rules](https://github.com/bcoe/nyc#excluding-files):
@@ -127,6 +155,6 @@ function instrument(sourceCode, sourceMap, filename) {
 }
 ```
 
-## Credit where credit is due
+## Upstream credit
 
 The approach used in `babel-plugin-istanbul` was inspired by [Thai Pangsakulyanont](https://github.com/dtinth)'s original library [`babel-plugin-__coverage__`](https://github.com/dtinth/babel-plugin-__coverage__).
