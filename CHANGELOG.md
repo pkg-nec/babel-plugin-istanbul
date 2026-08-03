@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.1](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v9.0.0...v9.0.1) (2026-08-03)
+
+
+### Bug Fixes
+
+* improve package metadata for security info ([#22](https://github.com/pkg-nec/babel-plugin-istanbul/issues/22)) ([308ce07](https://github.com/pkg-nec/babel-plugin-istanbul/commit/308ce071bf31a70e3409e7c06b0ab5938af5a0ac))
+
 ## [9.0.0](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v8.0.3...v9.0.0) (2026-08-03)
 
 
