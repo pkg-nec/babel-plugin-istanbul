@@ -3,7 +3,8 @@
   "version": "9.0.0",
   "author": "Thai Pangsakulyanont @dtinth",
   "license": "BSD-3-Clause",
-  "description": "A babel plugin that adds istanbul instrumentation to ES6 code",
+  "description": "Security-maintained compatible fork of the Babel plugin for Istanbul code coverage instrumentation",
+  "funding": "https://buymeacoffee.com/maw629",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -54,10 +55,14 @@
     "url": "git+https://github.com/pkg-nec/babel-plugin-istanbul.git"
   },
   "keywords": [
-    "istanbul",
     "babel",
-    "plugin",
-    "instrumentation"
+    "babel-plugin",
+    "istanbul",
+    "coverage",
+    "code-coverage",
+    "instrumentation",
+    "nyc",
+    "javascript"
   ],
   "nyc": {
     "include": [

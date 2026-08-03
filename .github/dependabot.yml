@@ -14,8 +14,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    allow:
-      - dependency-type: "production"
     commit-message:
       prefix: "fix"
     cooldown:
