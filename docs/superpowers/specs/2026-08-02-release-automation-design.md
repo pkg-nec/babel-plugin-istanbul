@@ -95,15 +95,21 @@ than `chore(deps): ...`, so they are included in a release proposal.
 
 ## Credentials and permissions
 
-Both Release Please workflows use a dedicated secret named
-`RELEASE_PLEASE_TOKEN`, preferably a fine-grained PAT owned by a release bot or
-service account and limited to this repository. It must grant the action the
-repository contents, pull-request, and issue permissions needed to create and
-label release PRs and create tags/releases.
+Both Release Please workflows use a dedicated organization-owned GitHub App
+installed only on this repository, with webhook events inactive. Store its
+client ID in the `RELEASE_PLEASE_APP_ID` repository Actions variable and its
+PEM private key in the
+`RELEASE_PLEASE_APP_PRIVATE_KEY` repository Actions secret. Each job generates
+a fresh installation token with explicit `contents`, `pull-requests`, and
+`issues` write permission inputs before invoking Release Please.
+
+The generated token is used only within that job. Do not cache it, store it in
+an artifact or secret, pass it through a job output, or reuse it in another
+job. The token action's default post-step revokes the token after the job.
 
 The token must not be only `GITHUB_TOKEN`: a GitHub release created with that
-token would not trigger the separate npm-publishing workflow. A PAT or GitHub
-App token permits the `release.published` event to trigger
+token would not trigger the separate npm-publishing workflow. The dedicated
+GitHub App token permits the `release.published` event to trigger
 `release-npm-package.yml`.
 
 ## Validation

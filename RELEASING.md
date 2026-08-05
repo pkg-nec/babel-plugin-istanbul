@@ -3,6 +3,9 @@
 This guide is the canonical policy for maintainers selecting release-affecting
 Conventional Commit subjects and deciding this package's SemVer version.
 
+For GitHub App setup, release operation, recovery, and credential rotation,
+see [Automated npm release runbook](docs/automated-npm-release.md).
+
 ## Release workflow
 
 The release process is split across three workflows:
