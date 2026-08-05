@@ -14,7 +14,7 @@
 - Use `$schema` pinned to `https://raw.githubusercontent.com/googleapis/release-please/v17.6.1/schemas/config.json`; do not use a branch URL.
 - The package baseline is `8.0.3`; its bootstrap commit is `1afbfea332935477438b03c3029e69bedeeb8c4c`.
 - The workflows are named `prepare-release.yml`, `create-github-release.yml`, and `release-npm-package.yml`.
-- Both Release Please workflows use the repository secret `RELEASE_PLEASE_TOKEN`, a dedicated fine-grained PAT or GitHub App token—not only `GITHUB_TOKEN`.
+- Both Release Please workflows create a fresh GitHub App installation token using the `RELEASE_PLEASE_APP_ID` repository variable and `RELEASE_PLEASE_APP_PRIVATE_KEY` repository secret, with explicit contents, issues, and pull-requests write permissions. Do not cache, reuse, or pass the token through an artifact, secret, or job output.
 - Preserve `release-npm-package.yml` behavior exactly when renaming it.
 - Do not edit generated `lib/` files or change package dependencies.
 - Run Node, Corepack, and Yarn commands from Git Bash. Run `corepack enable` before `yarn install --immutable`.
@@ -109,7 +109,7 @@ git commit -m "ci: configure release please manifest"
 
 **Interfaces:**
 
-- Consumes: `RELEASE_PLEASE_TOKEN`, `release-please-config.json`, `.release-please-manifest.json`, and manual `workflow_dispatch` or a push to `main`.
+- Consumes: `RELEASE_PLEASE_APP_ID`, `RELEASE_PLEASE_APP_PRIVATE_KEY`, `release-please-config.json`, `.release-please-manifest.json`, and manual `workflow_dispatch` or a push to `main`.
 - Produces: a pending Release Please PR in task 2A; then a `vX.Y.Z` GitHub Release in task 2B; finally the existing `release.published` event for `release-npm-package.yml`.
 
 - [ ] **Step 1: Replace the old workflow with manual release-PR preparation**
@@ -136,10 +136,19 @@ jobs:
     name: Prepare release PR
     runs-on: ubuntu-latest
     steps:
+      - name: Create Release Please GitHub App token
+        id: release-please-app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.RELEASE_PLEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
       - name: Create or update release PR
         uses: googleapis/release-please-action@v5.0.0
         with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ steps.release-please-app-token.outputs.token }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -172,10 +181,19 @@ jobs:
     name: Create GitHub release
     runs-on: ubuntu-latest
     steps:
+      - name: Create Release Please GitHub App token
+        id: release-please-app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.RELEASE_PLEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
       - name: Create tag and GitHub release for a merged release PR
         uses: googleapis/release-please-action@v5.0.0
         with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ steps.release-please-app-token.outputs.token }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -245,12 +263,12 @@ git commit -m "ci: split release please workflows"
 
 **Interfaces:**
 
-- Consumes: the repository secret `RELEASE_PLEASE_TOKEN`, a manually dispatched workflow, a conventional `fix(deps): ...` merge to `main`, and GitHub Release events.
+- Consumes: the `RELEASE_PLEASE_APP_ID` repository variable, the `RELEASE_PLEASE_APP_PRIVATE_KEY` repository secret, a manually dispatched workflow, a conventional `fix(deps): ...` merge to `main`, and GitHub Release events.
 - Produces: evidence that routine work does not release immediately and that a reviewed release PR triggers exactly one provenance npm publication.
 
 - [ ] **Step 1: Configure the release credential before dispatching the workflow**
 
-Create the repository Actions secret `RELEASE_PLEASE_TOKEN` using a dedicated release-bot fine-grained PAT or GitHub App token. Limit it to this repository and grant contents, pull-request, and issue read/write permissions. Do not print or add the token to a file, workflow log, or shell command.
+Create a dedicated organization-owned GitHub App, leave webhook events inactive, and install it only on this repository. Grant Contents, Pull requests, and Issues write permissions. Store its client ID in the `RELEASE_PLEASE_APP_ID` repository Actions variable and its PEM private key in the `RELEASE_PLEASE_APP_PRIVATE_KEY` repository Actions secret. Generate a fresh installation token in each Release Please job with explicit permission inputs; do not cache, reuse, or expose the token in an artifact, secret, job output, or workflow log.
 
 - [ ] **Step 2: Verify that normal work does not publish**
 
