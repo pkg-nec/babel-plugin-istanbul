@@ -558,7 +558,6 @@ __metadata:
     istanbul-lib-instrument: "npm:^6.0.2"
     mocha: "npm:^6.2.2"
     nyc: "npm:^15.0.0"
-    pmock: "npm:^0.2.3"
     standard: "npm:^14.3.1"
     test-exclude: "npm:^8.0.0"
   languageName: unknown
@@ -2004,7 +2003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:~3.0.2":
+"extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 10c0/73bf6e27406e80aa3e85b0d1c4fd987261e628064e170ca781125c0b635a3dabad5e05adbf07595ea0cf1e6c5396cacb214af933da7cbaf24fe75ff14818e8f9
@@ -4172,15 +4171,6 @@ __metadata:
   dependencies:
     find-up: "npm:^4.0.0"
   checksum: 10c0/c56bda7769e04907a88423feb320babaed0711af8c436ce3e56763ab1021ba107c7b0cafb11cde7529f669cfc22bffcaebffb573645cbd63842ea9fb17cd7728
-  languageName: node
-  linkType: hard
-
-"pmock@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "pmock@npm:0.2.3"
-  dependencies:
-    extend: "npm:^3.0.0"
-  checksum: 10c0/338844f2444df1e6095656a272b31c8e97d60a2333750370520b35a83e18b714a1f1842b4c579b035253814bd930675f4e8f1a1e8601d867ba8b244ccfbdce6b
   languageName: node
   linkType: hard
 
