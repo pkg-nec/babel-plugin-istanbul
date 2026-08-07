@@ -6,9 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: read
 
 concurrency:
   group: release-please-main
@@ -18,6 +16,10 @@ jobs:
   create-github-release:
     name: Create GitHub release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - name: Create Release Please GitHub App token
         id: release-please-app-token
