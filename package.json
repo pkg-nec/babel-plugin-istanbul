@@ -1,6 +1,6 @@
 {
   "name": "@pkg-nec/babel-plugin-istanbul",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "author": "Thai Pangsakulyanont @dtinth",
   "license": "BSD-3-Clause",
   "description": "Security-maintained compatible fork of the Babel plugin for Istanbul code coverage instrumentation",
