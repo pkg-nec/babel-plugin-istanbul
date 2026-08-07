@@ -29,6 +29,29 @@ jobs:
       - run: yarn install --immutable
       - run: yarn test
 
+      - name: Publish coverage summary
+        if: matrix.node == 22
+        shell: bash
+        run: |
+          set -o pipefail
+          yarn nyc report --reporter=html --reporter=text-summary | tee coverage/summary.txt
+          {
+            echo '## Unit test coverage'
+            echo ''
+            echo '```text'
+            cat coverage/summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage artifact
+        if: matrix.node == 22
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: unit-test-coverage
+          path: coverage/
+          retention-days: 7
+          if-no-files-found: error
+
   windows-test:
     runs-on: windows-latest
     steps:
