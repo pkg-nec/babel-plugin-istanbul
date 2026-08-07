@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.2](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v9.0.1...v9.0.2) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** bump js-yaml from 3.15.0 to 3.15.1 ([#38](https://github.com/pkg-nec/babel-plugin-istanbul/issues/38)) ([8fdc130](https://github.com/pkg-nec/babel-plugin-istanbul/commit/8fdc130ad942e8565ac7e447f14cd15f965ebc20))
+
 ## [9.0.1](https://github.com/pkg-nec/babel-plugin-istanbul/compare/v9.0.0...v9.0.1) (2026-08-03)
 
 
