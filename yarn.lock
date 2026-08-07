@@ -90,7 +90,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^8.0.0-beta.2":
+"@babel/core@npm:^8.0.1":
   version: 8.0.1
   resolution: "@babel/core@npm:8.0.1"
   dependencies:
@@ -338,7 +338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-block-scoping@npm:^8.0.0-beta.2":
+"@babel/plugin-transform-block-scoping@npm:^8.0.1":
   version: 8.0.1
   resolution: "@babel/plugin-transform-block-scoping@npm:8.0.1"
   dependencies:
@@ -361,7 +361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^8.0.0-beta.2":
+"@babel/plugin-transform-modules-commonjs@npm:^8.0.1":
   version: 8.0.1
   resolution: "@babel/plugin-transform-modules-commonjs@npm:8.0.1"
   dependencies:
@@ -861,9 +861,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "babel-8-91e0c0@workspace:test/babel-8"
   dependencies:
-    "@babel/core": "npm:^8.0.0-beta.2"
-    "@babel/plugin-transform-block-scoping": "npm:^8.0.0-beta.2"
-    "@babel/plugin-transform-modules-commonjs": "npm:^8.0.0-beta.2"
+    "@babel/core": "npm:^8.0.1"
+    "@babel/plugin-transform-block-scoping": "npm:^8.0.1"
+    "@babel/plugin-transform-modules-commonjs": "npm:^8.0.1"
   languageName: unknown
   linkType: soft
 
