@@ -4,7 +4,10 @@ import * as babel7 from '@babel/core'
 import makeVisitor from '../src'
 import path from 'path'
 
-require('chai').should()
+before(async function () {
+  const chai = await import('chai')
+  chai.should()
+})
 
 function requireBabel8 (name) {
   return require(
