@@ -45,7 +45,7 @@ describe('babel-plugin-istanbul', function () {
 function defineTests (babel, babelPlugins, options = {}) {
   context('Babel plugin config', function () {
     it('should instrument file if shouldSkip returns false', function () {
-      var result = babel.transformFileSync('./fixtures/plugin-should-cover.js', {
+      const result = babel.transformFileSync('./fixtures/plugin-should-cover.js', {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -58,7 +58,7 @@ function defineTests (babel, babelPlugins, options = {}) {
     })
 
     it('should not instrument file if shouldSkip returns true', function () {
-      var result = babel.transformFileSync('./fixtures/plugin-should-not-cover.js', {
+      const result = babel.transformFileSync('./fixtures/plugin-should-not-cover.js', {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -72,7 +72,7 @@ function defineTests (babel, babelPlugins, options = {}) {
 
     context('local node_modules', function () {
       it('should instrument file if shouldSkip returns false', function () {
-        var result = babel.transformFileSync('./fixtures/node_modules/should-cover.js', {
+        const result = babel.transformFileSync('./fixtures/node_modules/should-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -87,7 +87,7 @@ function defineTests (babel, babelPlugins, options = {}) {
       })
 
       it('should not instrument file if shouldSkip returns true', function () {
-        var result = babel.transformFileSync('./fixtures/node_modules/should-not-cover.js', {
+        const result = babel.transformFileSync('./fixtures/node_modules/should-not-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -101,7 +101,7 @@ function defineTests (babel, babelPlugins, options = {}) {
     })
 
     it('should call onCover callback', function () {
-      var args
+      let args
       babel.transformFileSync('./fixtures/plugin-should-cover.js', {
         babelrc: false,
         configFile: false,
@@ -121,7 +121,7 @@ function defineTests (babel, babelPlugins, options = {}) {
 
   context('source maps', function () {
     it('should use inline source map', function () {
-      var transformOptions = {
+      const transformOptions = {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -139,7 +139,7 @@ function defineTests (babel, babelPlugins, options = {}) {
         transformOptions.inputSourceMap = true
       }
 
-      var result = babel.transformFileSync(
+      const result = babel.transformFileSync(
         './fixtures/has-inline-source-map.js',
         transformOptions
       )
@@ -147,7 +147,7 @@ function defineTests (babel, babelPlugins, options = {}) {
     })
 
     it('should not use inline source map if inputSourceMap is set to false', function () {
-      var result = babel.transformFileSync('./fixtures/has-inline-source-map.js', {
+      const result = babel.transformFileSync('./fixtures/has-inline-source-map.js', {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -161,7 +161,7 @@ function defineTests (babel, babelPlugins, options = {}) {
     })
 
     it('should use provided source map', function () {
-      var result = babel.transformFileSync('./fixtures/has-inline-source-map.js', {
+      const result = babel.transformFileSync('./fixtures/has-inline-source-map.js', {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -246,7 +246,7 @@ function defineTests (babel, babelPlugins, options = {}) {
   context('package.json "nyc" config', function () {
     context('process.env.NYC_CONFIG is set', function () {
       it('should instrument file if shouldSkip returns false', function () {
-        var result = babel.transformFileSync('./fixtures/should-cover.js', {
+        const result = babel.transformFileSync('./fixtures/should-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -257,7 +257,7 @@ function defineTests (babel, babelPlugins, options = {}) {
       })
 
       it('should not instrument file if shouldSkip returns true', function () {
-        var result = babel.transformFileSync('./fixtures/should-not-cover.js', {
+        const result = babel.transformFileSync('./fixtures/should-not-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -283,7 +283,7 @@ function defineTests (babel, babelPlugins, options = {}) {
       })
 
       it('should instrument file if shouldSkip returns false', function () {
-        var result = babel.transformFileSync('./fixtures/should-cover.js', {
+        const result = babel.transformFileSync('./fixtures/should-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -294,7 +294,7 @@ function defineTests (babel, babelPlugins, options = {}) {
       })
 
       it('should not instrument file if shouldSkip returns true', function () {
-        var result = babel.transformFileSync('./fixtures/should-not-cover.js', {
+        const result = babel.transformFileSync('./fixtures/should-not-cover.js', {
           babelrc: false,
           configFile: false,
           plugins: [
@@ -349,7 +349,7 @@ function defineTests (babel, babelPlugins, options = {}) {
   context('regression tests', () => {
     // regression test for https://github.com/istanbuljs/babel-plugin-istanbul/issues/78
     it('should instrument: export const foo = () => {}', function () {
-      var result = babel.transformFileSync('./fixtures/issue-78.js', {
+      const result = babel.transformFileSync('./fixtures/issue-78.js', {
         babelrc: false,
         configFile: false,
         plugins: [
@@ -363,7 +363,7 @@ function defineTests (babel, babelPlugins, options = {}) {
 
     // regression test for https://github.com/istanbuljs/babel-plugin-istanbul/issues/201
     it('should not conflict with transform-modules-commonjs', function () {
-      var result = babel.transformFileSync('./fixtures/issue-201.js', {
+      const result = babel.transformFileSync('./fixtures/issue-201.js', {
         babelrc: false,
         configFile: false,
         plugins: [
