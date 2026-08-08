@@ -67,7 +67,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.23.9, @babel/core@npm:^7.29.7":
+"@babel/core@npm:^7.23.9":
   version: 7.29.7
   resolution: "@babel/core@npm:7.29.7"
   dependencies:
@@ -660,7 +660,7 @@ __metadata:
   resolution: "@pkg-nec/babel-plugin-istanbul@workspace:."
   dependencies:
     "@babel/cli": "npm:^7.29.7"
-    "@babel/core": "npm:^7.29.7"
+    "@babel/core": "npm:^8.0.1"
     "@babel/helper-plugin-utils": "npm:^7.0.0"
     "@babel/plugin-transform-block-scoping": "npm:^7.29.7"
     "@babel/plugin-transform-modules-commonjs": "npm:^7.29.7"
