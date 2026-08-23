@@ -327,17 +327,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-block-scoping@npm:^7.29.7":
-  version: 7.29.7
-  resolution: "@babel/plugin-transform-block-scoping@npm:7.29.7"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.29.7"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10c0/ec4e45aefd4e1d276d0ee143bc521c2a3b38e59cc7dcef014d43c9a844416160d89f98953399e69e547a5743474d0986cb62155514109eab73b942beeb453a3f
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-transform-block-scoping@npm:^8.0.1":
   version: 8.0.1
   resolution: "@babel/plugin-transform-block-scoping@npm:8.0.1"
@@ -662,7 +651,7 @@ __metadata:
     "@babel/cli": "npm:^7.29.7"
     "@babel/core": "npm:^7.29.7"
     "@babel/helper-plugin-utils": "npm:^7.0.0"
-    "@babel/plugin-transform-block-scoping": "npm:^7.29.7"
+    "@babel/plugin-transform-block-scoping": "npm:^8.0.1"
     "@babel/plugin-transform-modules-commonjs": "npm:^7.29.7"
     "@babel/register": "npm:^7.29.7"
     "@istanbuljs/load-nyc-config": "npm:^1.0.0"
